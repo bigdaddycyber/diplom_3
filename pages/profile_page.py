@@ -21,10 +21,6 @@ class ProfilePage(BasePage):
     def click_orders_history_button(self):
         self.click_on_element(ProfilePageLocators.BUTTON_HISTORY_ORDER)
         
-    @allure.step('Клик по кнопке Лента заказов')
-    def click_on_feed_button(self):
-        self.click_on_element(MainPageLocators.CLICK_BUTTON_FEED)
-
 
     @allure.step('Загрузки истории заказов')
     def load_order_history(self):

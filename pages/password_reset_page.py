@@ -9,15 +9,15 @@ class ResetPasswordPage(BasePage):
     def wait_for_reset_password_page_loaded(self):
         return self.wait_for_element_located(ResetPasswordPageLocators.ENTER_CODE_FROM_EMAIL)
 
-    #@allure.step('Проверка, что страница сброса пароля загружена')
+    @allure.step('Проверка, что страница сброса пароля загружена')
     def check_reset_page_laoded(self):
         return self.check_element_present(ResetPasswordPageLocators.ENTER_CODE_FROM_EMAIL)
 
-    #@allure.step('Ждать пока закончится анимация загрузки Modal_overlay')
+    @allure.step('Ждать пока закончится анимация загрузки Modal_overlay')
     def wait_for_overlay_disappear(self):
         self.wait_for_invisibility_of_element_located(ResetPasswordPageLocators.MODAL_OVERLAY)
 
-    #@allure.step('Клик на иконке Показать пароль')
+    @allure.step('Клик на иконке Показать пароль')
     def click_show_password_button(self):
         self.click_on_element(ResetPasswordPageLocators.SHOW_PASSWORD_ICON)
 
