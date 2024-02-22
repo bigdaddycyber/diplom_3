@@ -7,34 +7,29 @@ from pages.feed_page import FeedPage
 class TestMainFunctionality:
     
     @allure.title('Клик на конструктор')
-    def test_click_constructor_button(self, login_page):
-        self.driver = login_page
-        page = LoginPage(self.driver)
-        page = MainPage(self.driver)
+    def test_click_constructor_button(self, get_driver):
+        page = MainPage(get_driver)
         assert page.check_main_page_load()
 
     @allure.title('Клик на кнопку лента заказов')
-    def test_click_feed_button(self, main_page):
-        self.driver = main_page
-        page = MainPage(self.driver)
+    def test_click_feed_button(self, get_driver):
+        page = MainPage(get_driver)
         page.check_main_page_load()
         page.click_feed_button()
-        page = FeedPage(self.driver)
+        page = FeedPage(get_driver)
         assert page.check_for_feed_page_load()
 
     @allure.title('Клика на ингредиенты')
-    def test_click_on_ingredient(self, main_page):
-        self.driver = main_page
-        page = MainPage(self.driver)
+    def test_click_on_ingredient(self, get_driver):
+        page = MainPage(get_driver)
         page.check_main_page_load()
-        page.click_on_ingredient_bulka
+        page.click_on_ingredient_bulka()
         assert page.load_window_with_ingredient()
 
 
     @allure.title('Заказ для зарегистрированного пользователя')
-    def test_logged_in_user_order_creation(self, main_page_logged_in):
-        self.driver = main_page_logged_in
-        page = MainPage(self.driver)
+    def test_logged_in_user_order_creation(self, get_driver):
+        page = MainPage(get_driver)
         page.check_main_page_load()
         page.add_ingredient_to_order()
         page.click_create_order_button()
